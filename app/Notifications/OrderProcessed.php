@@ -44,7 +44,7 @@ class OrderProcessed extends Notification
         $deliveryDate = $this->order->created_at->addDays(4)->toFormattedDateString();
 
 
-        return (new WhatsAppMessage)->content("Your {$company} order of {$this->order->name} has shipped and should be delivered on {$deliveryDate}. Details: {$orderUrl}");
+        return (new WhatsAppMessage)->content("Your projects has been taken by  {$this->order->name} has shipped and should be delivered on {$deliveryDate}. Details: {$orderUrl}");
     }
 
     /**
