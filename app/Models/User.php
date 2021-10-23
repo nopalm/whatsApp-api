@@ -47,4 +47,8 @@ class User extends Authenticatable
     {
     return $this->phone_number;
     }
+
+    public function projectPost(){
+        return $this->belongsTo(Project::class);
+    }
 }

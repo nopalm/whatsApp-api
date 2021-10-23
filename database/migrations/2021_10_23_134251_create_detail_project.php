@@ -15,7 +15,7 @@ class CreateDetailProject extends Migration
     {
         Schema::create('detail_project', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('projects_id');
+            $table->foreignId('projects_id')->constrained();
             $table->string('user_team_id',9);
             $table->dateTime('tglrevPro');
             $table->timestamps();

@@ -20,5 +20,9 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::post('/order', [App\Http\Controllers\OrderController::class, 'store'])->name('order')->middleware('auth');
+Route::middleware(['auth'])->group(function () {
+    Route::post('/order', [App\Http\Controllers\OrderController::class, 'store'])->name('order');
+    Route::get('/project', [App\Http\Controllers\ProjectController::class, 'index'])->name('project');
+});
+
 
