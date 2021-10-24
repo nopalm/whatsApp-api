@@ -12,7 +12,10 @@ class OrderController extends Controller
 {
     public function store(Request $request)
     {
-    $order = Order::first();
+    $order = Order::create([
+        'name' => 'order 1',
+        'amount' => 1
+    ]);
     $request->user()->notify(new OrderProcessed($order));
     return redirect()->route('home')->with('status', 'Order Placed!');
     }
